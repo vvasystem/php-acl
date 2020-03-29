@@ -1,0 +1,23 @@
+{
+  "name": "vvasystem/php-acl",
+  "description": "ACL for PHP",
+  "keywords": ["php", "acl"],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=7.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~8.5.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "PhpAcl\\": "src/PhpAcl/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "PhpAclTest\\": "tests"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# IDE
+.idea
+
+# PHPUnit local config
+phpunit.xml
+.phpunit.result.cache
+
+# vendors
+/vendor
