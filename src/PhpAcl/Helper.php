@@ -48,20 +48,20 @@ class Helper
             return true;
         }
 
-        $rightsLeft = [];
-        $rightsRight = [];
+        $rightsScope = [];
         foreach ($rights as $n => $right) {
-            $rightsLeft[$n] = static::padding($right);
-            $rightsRight[$n] = static::padding($right + 1) - 1;
+            $rightsScope[$n] = static::padPair($right, $right + 1);
         }
+
         foreach ($checkRights as $accessRight) {
             $kAccessRight = static::padding($accessRight);
             foreach ($rights as $n => $right) {
-                if ($kAccessRight >= $rightsLeft[$n] && $kAccessRight <= $rightsRight[$n]) {
+                if ($kAccessRight >= $rightsScope[$n][0] && $kAccessRight <= $rightsScope[$n][1]) {
                     return true;
                 }
             }
         }
+
         return false;
     }
 
@@ -80,6 +80,15 @@ class Helper
             $c *= 10;
         }
         return $c;
+    }
+
+    private static function padPair(int $left, $right)
+    {
+        while ($left && $left <= 100000000) {
+            $left *= 10;
+            $right *= 10;
+        }
+        return [$left, $right - 1];
     }
 
 }
